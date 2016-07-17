@@ -1,0 +1,82 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" style="height: 131px;">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+
+
+	<form>
+		<h3 style="margin-top: 0">Selecione_un_OneRadio</h3>
+		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+			<p:outputLabel for="console" value="Console:" />
+			<p:selectOneRadio id="console" value="#{radioView.console}">
+				<f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+				<f:selectItem itemLabel="PS4" itemValue="PS4" />
+				<f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+			</p:selectOneRadio>
+		</h:panelGrid>
+
+		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+			<p:outputLabel for="console" value="Basic:" />
+			<p:selectOneMenu id="consol" value="#{selectOneMenuView.console}"
+				style="width:125px">
+				<f:selectItem itemLabel="Select One" itemValue="" />
+				<f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+				<f:selectItem itemLabel="PS4" itemValue="PS4" />
+				<f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+			</p:selectOneMenu>
+		</h:panelGrid>
+
+		<h3 style="margin-top: 0px">Basic Layout</h3>
+		<p:selectManyCheckbox id="basic"
+			value="#{checkboxView.selectedConsoles}">
+			<f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+			<f:selectItem itemLabel="PS4" itemValue="PS4" />
+			<f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+		</p:selectManyCheckbox>
+
+		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5"
+			columnClasses="label, value">
+			<p:outputLabel for="basic" value="Basic:" />
+			<p:selectOneListbox id="basic" value="#{selectOneView.option}">
+				<f:selectItem itemLabel="Option 1" itemValue="1" />
+				<f:selectItem itemLabel="Option 2" itemValue="2" />
+				<f:selectItem itemLabel="Option 3" itemValue="3" />
+			</p:selectOneListbox>
+
+			<p:outputLabel for="advanced" value="Advanced:" />
+			<p:selectOneListbox id="advanced" value="#{selectOneView.theme}"
+				converter="themeConverter" var="t" filter="true"
+				filterMatchMode="contains">
+				<f:selectItems value="#{selectOneView.themes}" var="theme"
+					itemLabel="#{theme.displayName}" itemValue="#{theme}" />
+
+				<p:column>
+					<h:outputText styleClass="ui-theme ui-theme-#{t.name}" />
+				</p:column>
+
+				<p:column>
+					<h:outputText value="#{t.displayName}" />
+				</p:column>
+			</p:selectOneListbox>
+		</h:panelGrid>
+
+		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5"
+			columnClasses="label, value">
+			<p:outputLabel for="basic" value="Basic:" />
+			<p:selectOneListbox id="basic" value="#{selectOneView.option}">
+				<f:selectItem itemLabel="Option 1" itemValue="1" />
+				<f:selectItem itemLabel="Option 2" itemValue="2" />
+				<f:selectItem itemLabel="Option 3" itemValue="3" />
+			</p:selectOneListbox>
+		</h:panelGrid>
+		
+	</form>
+
+</h:body>
+</html>
